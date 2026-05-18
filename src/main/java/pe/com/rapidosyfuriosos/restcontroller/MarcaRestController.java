@@ -11,48 +11,48 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pe.com.rapidosyfuriosos.entity.SexoEntity;
-import pe.com.rapidosyfuriosos.service.SexoService;
+import pe.com.rapidosyfuriosos.entity.MarcaEntity;
+import pe.com.rapidosyfuriosos.service.MarcaService;
 
 @RestController
-@RequestMapping("/api/sexo")
-public class SexoRestController {
+@RequestMapping("/api/marca")
+public class MarcaRestController {
 
     @Autowired
-    private SexoService servicio;
+    private MarcaService servicio;
 
     @GetMapping
-    public List<SexoEntity> findAll() {
+    public List<MarcaEntity> findAll() {
         return servicio.findAll();
     }
 
     @GetMapping("/custom")
-    public List<SexoEntity> findAllCustom() {
+    public List<MarcaEntity> findAllCustom() {
         return servicio.findAllCustom();
     }
 
     @GetMapping("/{id}")
-    public SexoEntity findById(@PathVariable Long id) {
+    public MarcaEntity findById(@PathVariable Long id) {
         return servicio.findById(id);
     }
 
     @PostMapping
-    public SexoEntity add(@RequestBody SexoEntity obj) {
+    public MarcaEntity add(@RequestBody MarcaEntity obj) {
         return servicio.add(obj);
     }
 
     @PutMapping("/{id}")
-    public SexoEntity update(@RequestBody SexoEntity obj, @PathVariable Long id) {
+    public MarcaEntity update(@RequestBody MarcaEntity obj, @PathVariable Long id) {
         return servicio.update(obj, id);
     }
 
     @DeleteMapping("/{id}")
-    public SexoEntity delete(@PathVariable Long id) {
+    public MarcaEntity delete(@PathVariable Long id) {
         return servicio.delete(id);
     }
 
     @PatchMapping("/{id}")
-    public SexoEntity enable(@PathVariable Long id) {
+    public MarcaEntity enable(@PathVariable Long id) {
         return servicio.enable(id);
     }
 }

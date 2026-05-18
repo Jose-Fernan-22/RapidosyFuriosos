@@ -16,20 +16,20 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-@Entity(name="TipoDocumentoEntity")
-@Table(name="tipodocumento")
-public class TipoDocumentoEntity implements Serializable {
+@Entity(name="MarcaEntity")
+@Table(name="marca")
+public class MarcaEntity implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
     @Id
-    @Column(name="codtipd")
+    @Column(name="codmar")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
     
-    @Column(name="nomtipd", length = 30, nullable = false, unique = true)
+    @Column(name="nommar", length = 50, nullable = false, unique = true)
     private String nombre;
     
-    @Column(name="esttipd", nullable = false)
+    @Column(name="estmar", nullable = false)
     private Boolean estado;
 }

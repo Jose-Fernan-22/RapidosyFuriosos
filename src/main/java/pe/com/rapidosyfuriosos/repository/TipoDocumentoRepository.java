@@ -1,5 +1,13 @@
 package pe.com.rapidosyfuriosos.repository;
 
-public interface TipoDocumentoRepository {
+import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import pe.com.rapidosyfuriosos.entity.TipoDocumentoEntity;
 
+public interface TipoDocumentoRepository extends JpaRepository<TipoDocumentoEntity, Long> {
+    
+    // Consulta SQL: select * from tipodocumento where esttipd=1
+    @Query("select t from TipoDocumentoEntity t where t.estado=true")
+    List<TipoDocumentoEntity> findAllCustom();
 }

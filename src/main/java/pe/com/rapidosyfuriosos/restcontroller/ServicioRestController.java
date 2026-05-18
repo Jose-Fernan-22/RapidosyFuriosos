@@ -11,48 +11,48 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pe.com.rapidosyfuriosos.entity.SexoEntity;
-import pe.com.rapidosyfuriosos.service.SexoService;
+import pe.com.rapidosyfuriosos.entity.ServicioEntity;
+import pe.com.rapidosyfuriosos.service.ServicioService;
 
 @RestController
-@RequestMapping("/api/sexo")
-public class SexoRestController {
+@RequestMapping("/api/servicio")
+public class ServicioRestController {
 
     @Autowired
-    private SexoService servicio;
+    private ServicioService servicio;
 
     @GetMapping
-    public List<SexoEntity> findAll() {
+    public List<ServicioEntity> findAll() {
         return servicio.findAll();
     }
 
     @GetMapping("/custom")
-    public List<SexoEntity> findAllCustom() {
+    public List<ServicioEntity> findAllCustom() {
         return servicio.findAllCustom();
     }
 
     @GetMapping("/{id}")
-    public SexoEntity findById(@PathVariable Long id) {
+    public ServicioEntity findById(@PathVariable Long id) {
         return servicio.findById(id);
     }
 
     @PostMapping
-    public SexoEntity add(@RequestBody SexoEntity obj) {
+    public ServicioEntity add(@RequestBody ServicioEntity obj) {
         return servicio.add(obj);
     }
 
     @PutMapping("/{id}")
-    public SexoEntity update(@RequestBody SexoEntity obj, @PathVariable Long id) {
+    public ServicioEntity update(@RequestBody ServicioEntity obj, @PathVariable Long id) {
         return servicio.update(obj, id);
     }
 
     @DeleteMapping("/{id}")
-    public SexoEntity delete(@PathVariable Long id) {
+    public ServicioEntity delete(@PathVariable Long id) {
         return servicio.delete(id);
     }
 
     @PatchMapping("/{id}")
-    public SexoEntity enable(@PathVariable Long id) {
+    public ServicioEntity enable(@PathVariable Long id) {
         return servicio.enable(id);
     }
 }
