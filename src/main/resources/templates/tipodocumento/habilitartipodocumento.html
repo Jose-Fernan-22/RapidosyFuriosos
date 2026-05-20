@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rapidos y Furiosos | Habilitar Tipo Documento</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-4">
+        <h1>Gestión de Estado de Tipos de Documento</h1>
+        <a th:href="@{/tipodocumento/listar}" class="btn btn-dark">Regresar</a>
+        <div class="mb-3"></div>
+        
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Código</th>
+                        <th scope="col">Nombre del Documento</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Habilitar</th>
+                        <th scope="col">Deshabilitar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="tdoc : ${listatipodocumento}">
+                        <th scope="row" th:text="${tdoc.codigo}"></th>
+                        <td th:text="${tdoc.nombre}"></td>
+                        <td th:text="${tdoc.estado} ? 'Habilitado':'Deshabilitado'"></td>
+                        <td><a th:href="@{/tipodocumento/habilitar/{id}(id=${tdoc.codigo})}" class="btn btn-warning">Seleccionar</a></td>
+                        <td><a th:href="@{/tipodocumento/deshabilitar/{id}(id=${tdoc.codigo})}" class="btn btn-danger">Seleccionar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
