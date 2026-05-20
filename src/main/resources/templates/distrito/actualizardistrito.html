@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rapidos y Furiosos | Actualizar Distrito</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+
+<body>
+    <div class="container">
+        <h1>Actualizacion de Distrito</h1>
+        <!-- inicio del formulario -->
+        <form th:action="@{/distrito/actualizar/{id}(id=${listadistrito.codigo})}" method="post" th:object="${listadistrito}">
+            <div class="col-6">
+                <label for="txtCod" class="form-label">Codigo:</label>
+                <input type="text" class="form-control" id="txtCod" name="txtCod" readonly th:field="*{codigo}" th:value="${listadistrito.codigo}">
+            </div>
+            <div class="col-6">
+                <label for="txtNom" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="txtNom" name="txtNom" th:field="*{nombre}" th:value="${listadistrito.nombre}">
+            </div>
+            <div class="col-6">
+                <label for="txtNom" class="form-label">Estado:</label>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="chkEst" name="chkEst" th:field="*{estado}">
+                    <label class="form-check-label" for="chkEst">Habilitado</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success">Actualizar</button>
+            <a th:href="@{/distrito/listar}" class="btn btn-dark">Regresar</a>
+        </form>
+        <!-- fin del formulario -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+
+</html>
