@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import pe.com.rapidosyfuriosos.entity.DistritoEntity;
 import pe.com.rapidosyfuriosos.entity.EmpleadoEntity;
 import pe.com.rapidosyfuriosos.service.DistritoService;
 import pe.com.rapidosyfuriosos.service.EmpleadoService;
