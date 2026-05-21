@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rapidos y Furiosos | Actualizar Empleado</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+
+<body>
+    <div class="container">
+        <h1>Actualizacion Empleado</h1>
+        <!-- inicio del formulario -->
+        <form th:action="@{/empleado/actualizar/{id}(id=${listarempleado.codigo})}" method="post"
+            th:object="${listarempleado}">
+
+            <div class="row">
+                <div class="col-6">
+                    <label for="txtCod" class="form-label">Codigo:</label>
+                    <input type="text" class="form-control" id="txtCod" name="txtCod" readonly th:field="*{codigo}">
+                </div>
+                <div class="col-6">
+                    <label for="txtNom" class="form-label">Nombre:</label>
+                    <input type="text" class="form-control" id="txtNom" name="txtNom" th:field="*{nombre}">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <label for="txtApep" class="form-label">Apellido Paterno:</label>
+                    <input type="text" class="form-control" id="txtApep" name="txtApep" th:field="*{apellidopaterno}">
+                </div>
+                <div class="col-6">
+                    <label for="txtApem" class="form-label">Apellido Materno:</label>
+                    <input type="text" class="form-control" id="txtApem" name="txtApem" th:field="*{apellidomaterno}">
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-6">
+                    <label for="cboTipoDocumento" class="form-label">Tipo de Documento</label>
+                    <select class="form-select" id="cboTipoDocumento" name="cboTipoDocumento"
+                        th:field="*{tipodocumento}">
+                        <option value="0">Seleccione un tipo de documento </option>
+                        <option th:each="td : ${listartipodocumento}" th:value="${td.codigo}" th:text="${td.nombre}">
+                        </option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <label for="txtNumDoc" class="form-label">Numero de documento:</label>
+                    <input type="number" class="form-control" id="txtNumDoc" name="txtNumDoc"
+                        th:field="*{numerodocumento}">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <label for="txtFec" class="form-label">Fecha de nacimiento:</label>
+                    <input type="date" class="form-control" id="txtFec" name="txtFec" th:field="*{fechanacimiento}">
+                </div>
+                <div class="col-6">
+                    <label for="txtDir" class="form-label">Direcion:</label>
+                    <textarea class="form-control" id="txtDir" name="txtDir" th:field="*{direccion}"></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <label for="cboDistrito" class="form-label">Distrito:</label>
+                    <select class="form-select" id="cboDistrito" name="cboDistrito" th:field="*{distrito}">
+                        <option value="0">Seleccione un distrito </option>
+                        <option th:each="dis : ${listardistrito}" th:value="${dis.codigo}" th:text="${dis.nombre}">
+                        </option>
+
+                    </select>
+                </div>
+                <div class="col-6">
+                    <label for="txtTel" class="form-label">Telefono:</label>
+                    <input type="number" class="form-control" id="txtTel" name="txtTel" th:field="*{telefono}">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <label for="txtCel" class="form-label">Celular:</label>
+                    <input type="number" class="form-control" id="txtCel" name="txtCel" th:field="*{celular}">
+                </div>
+                <div class="col-6">
+                    <label for="txtCor" class="form-label">Correo:</label>
+                    <input type="email" class="form-control" id="txtCor" name="txtCor" th:field="*{correo}">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <label for="txtUsu" class="form-label">Usuario:</label>
+                    <input type="text" class="form-control" id="txtUsu" name="txtUsu" th:field="*{usuario}">
+                </div>
+                <div class="col-6">
+                    <label for="txtCla" class="form-label">Clave:</label>
+                    <input type="text" class="form-control" id="txtCla" name="txtCla" th:field="*{clave}">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <label for="txtSue" class="form-label">Sueldo:</label>
+                    <input type="number" step="0.00001" class="form-control" id="txtSue" name="txtSue"
+                        th:field="*{sueldo}">
+                </div>
+                <div class="col-6">
+                    <label for="cboRol" class="form-label">Rol:</label>
+                    <select class="form-select" id="cboRol" name="cboRol" th:field="*{rol}">
+                        <option value="0">Seleccione un rol </option>
+                        <option th:each="rol : ${listarrol}" th:value="${rol.codigo}" th:text="${rol.nombre}"></option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <label for="cboSexo" class="form-label">Sexo:</label>
+                    <select class="form-select" id="cboSexo" name="cboSexo" th:field="*{sexo}">
+                        <option value="0">Seleccione un sexo </option>
+                        <option th:each="sex : ${listarsexo}" th:value="${sex.codigo}" th:text="${sex.nombre}"></option>
+
+                    </select>
+                </div>
+                <div class="col-6">
+                    <label for="chkEst" class="form-label">Estado:</label>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="chkEst" name="chkEst" th:field="*{estado}">
+                        <label class="form-check-label" for="chkEst">Habilitado</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3"></div>
+            <button type="submit" class="btn btn-success">Actualizar</button>
+            <a th:href="@{/empleado/listar}" class="btn btn-dark">Regresar</a>
+        </form>
+        <!-- fin del formulario -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+
+</html>

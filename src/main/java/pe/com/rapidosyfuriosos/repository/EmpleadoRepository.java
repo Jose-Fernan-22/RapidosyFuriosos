@@ -9,6 +9,6 @@ import pe.com.rapidosyfuriosos.entity.EmpleadoEntity;
 
 public interface EmpleadoRepository extends JpaRepository<EmpleadoEntity, Long> {
 
-	@Query("select e from DistritoEntity e where e.estado=true")
+	@Query("select e from EmpleadoEntity e where e.estado=true")
 	List<EmpleadoEntity> findAllCustom();
 }

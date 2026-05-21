@@ -45,7 +45,7 @@ public class EmpleadoEntity implements Serializable {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechanacimiento;
     @Column(name="diremp", length = 300, nullable = false)
-    private String dirreccion;
+    private String direccion;
     @Column(name="telemp", length = 15, nullable = false)
     private String telefono;
     @Column(name="celemp", length = 15, nullable = false)
